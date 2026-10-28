@@ -37,7 +37,6 @@ jobs:
       - name: Build static site with Next.js
         run: bun run build
         env:
-          STATIC_EXPORT: 'true'
           NEXT_PUBLIC_BASE_PATH: '/procedural-3d-benchmarking'
 
       - name: Verify static export output
