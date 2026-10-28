@@ -40,6 +40,17 @@ jobs:
           STATIC_EXPORT: 'true'
           NEXT_PUBLIC_BASE_PATH: '/procedural-3d-benchmarking'
 
+      - name: Verify static export output
+        run: |
+          echo "Workspace contents:"
+          ls -la
+          if [ ! -d out ]; then
+            echo "::error::Build did not produce an 'out/' directory. output: 'export' was not applied."
+            exit 1
+          fi
+          echo "out/ contents:"
+          ls -la out
+
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
 
