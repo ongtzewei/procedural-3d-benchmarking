@@ -13,18 +13,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    agentFeedback: true,
-  },
   transpilePackages: ['three'],
-  turbopack: {
-    rules: {
-      '*.css': {
-        loaders: ['@tailwindcss/turbopack'],
-        as: '*.css',
-      },
-    },
-  },
 };
 
 export default nextConfig;
