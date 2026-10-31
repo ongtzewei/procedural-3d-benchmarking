@@ -14,6 +14,17 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   transpilePackages: ['three'],
+  turbopack: {
+    rules: {
+      // Process CSS with Tailwind v4's Turbopack loader. Without this,
+      // Turbopack falls back to a PostCSS transform that doesn't understand
+      // Tailwind's `@theme` at-rule and emits a parse warning.
+      '*.css': {
+        loaders: ['@tailwindcss/turbopack'],
+        as: '*.css',
+      },
+    },
+  },
 };
 
 export default nextConfig;
